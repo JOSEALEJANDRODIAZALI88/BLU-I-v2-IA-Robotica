@@ -1,0 +1,30 @@
+BLU-I v2.0 - VERSION CORREGIDA
+
+Archivos:
+- blui_control/blui_control.ino
+- conexion_bt.py
+- prueba_bluetooth.py
+- camara.py
+
+Configuracion conservada del proyecto original BLU-I v2.0:
+- Motor derecho: DIR 13, PWM 11
+- Motor izquierdo: DIR 12, PWM 6
+- Bluetooth: 9600 bps
+- Puerto predeterminado: COM7
+
+PASOS:
+1. Cargar blui_control.ino al Arduino/BLU-I.
+2. Si el HC-06 usa RX/TX del Arduino, desconectarlo durante la carga y reconectarlo despues.
+3. Verificar en Windows qué COM corresponde al Bluetooth.
+4. Si no es COM7, cambiar PUERTO en prueba_bluetooth.py y camara.py.
+5. Cerrar el Monitor Serie de Arduino antes de usar Python.
+6. Ejecutar: python prueba_bluetooth.py
+7. Verificar que aparezcan ACK:F, ACK:B, ACK:L, ACK:R y ACK:S y que los motores reaccionen.
+8. Solo cuando la prueba funcione ejecutar: python camara.py
+
+Dependencias Python:
+    pip install pyserial opencv-python mediapipe
+
+IMPORTANTE:
+- Mantener hand_landmarker.task junto a camara.py.
+- No usar el sketch de Arduino Motor Shield Rev3: este paquete conserva los pines reales del proyecto BLU-I v2.0.
